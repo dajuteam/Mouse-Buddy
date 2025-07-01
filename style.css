@@ -1,0 +1,310 @@
+/* General Styling */
+:root {
+    --primary-color: #5a2e7c; /* 深紫色 */
+    --secondary-color: #8e44ad; /* 較淺的紫色 */
+    --accent-color: #f39c12; /* 橙色 */
+    --text-color: #333;
+    --light-bg: #f4f7f6;
+    --card-bg: #ffffff;
+    --border-color: #ddd;
+    --shadow-light: rgba(0, 0, 0, 0.1);
+    --shadow-medium: rgba(0, 0, 0, 0.2);
+    --success-color: #27ae60; /* 綠色 */
+    --warning-color: #e67e22; /* 橘黃色 */
+    --info-color: #3498db; /* 藍色 */
+}
+
+body {
+    font-family: 'Noto Sans TC', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: var(--light-bg);
+    color: var(--text-color);
+    scroll-behavior: smooth;
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 40px 0;
+    text-align: center;
+    box-shadow: 0 4px 8px var(--shadow-medium);
+}
+
+header h1 {
+    margin: 0 0 10px;
+    font-size: 2.8em;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+header p {
+    font-size: 1.2em;
+    opacity: 0.9;
+}
+
+/* Navigation */
+.main-nav {
+    background-color: var(--secondary-color);
+    box-shadow: 0 2px 4px var(--shadow-light);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.main-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.main-nav ul li {
+    flex: 1; /* 讓每個選單項目平均分配空間 */
+    text-align: center;
+}
+
+.main-nav .nav-item {
+    display: block;
+    padding: 15px 20px;
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-bottom: 3px solid transparent; /* 預留底部邊框空間 */
+}
+
+.main-nav .nav-item:hover {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+}
+
+.main-nav .nav-item.active {
+    background-color: var(--primary-color); /* 當前選單的背景色 */
+    border-bottom-color: var(--accent-color); /* 當前選單的底部亮色邊框 */
+    color: white;
+}
+
+/* Main Content Sections */
+.content-section {
+    padding: 40px 0;
+    display: none; /* 預設隱藏所有內容區塊 */
+    animation: fadeIn 0.8s ease-out; /* 淡入動畫 */
+}
+
+.content-section.active {
+    display: block; /* 顯示當前活躍的內容區塊 */
+}
+
+.content-section h2 {
+    font-size: 2.2em;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.content-section h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: var(--accent-color);
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+/* Card Styling */
+.card {
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px var(--shadow-light);
+    padding: 30px;
+    margin-bottom: 30px;
+}
+
+.card h3 {
+    color: var(--secondary-color);
+    font-size: 1.6em;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 10px;
+}
+
+.card h4 {
+    color: var(--primary-color);
+    font-size: 1.3em;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.card p {
+    margin-bottom: 10px;
+}
+
+.card ul {
+    list-style: disc;
+    margin-left: 25px;
+    margin-bottom: 10px;
+}
+
+.card ol {
+    list-style: decimal;
+    margin-left: 25px;
+    margin-bottom: 10px;
+}
+
+.card ul li, .card ol li {
+    margin-bottom: 8px;
+}
+
+.intro-text {
+    font-size: 1.1em;
+    margin-bottom: 25px;
+    line-height: 1.8;
+    color: #555;
+}
+
+/* Specific Boxes */
+.tip-box, .attention-box, .conclusion-box {
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 0.95em;
+    line-height: 1.5;
+}
+
+.tip-box {
+    background-color: rgba(52, 152, 219, 0.1); /* 淺藍色 */
+    border-left: 5px solid var(--info-color);
+    color: #2c3e50;
+}
+
+.attention-box {
+    background-color: rgba(230, 126, 34, 0.1); /* 淺橘色 */
+    border-left: 5px solid var(--warning-color);
+    color: #7f4b16;
+}
+
+.attention-box h4 {
+    color: var(--warning-color);
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.conclusion-box {
+    background-color: rgba(39, 174, 96, 0.1); /* 淺綠色 */
+    border-left: 5px solid var(--success-color);
+    color: #2c3e50;
+}
+
+.conclusion-box h4 {
+    color: var(--success-color);
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+/* Feature Mode Styling */
+.feature-mode {
+    background-color: #f9f9f9;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.feature-mode h4 {
+    font-size: 1.2em;
+    color: var(--secondary-color);
+    border-bottom: 1px dashed var(--border-color);
+    padding-bottom: 8px;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.feature-mode ul {
+    list-style: circle;
+    margin-left: 25px;
+}
+
+.feature-mode ul ul { /* Nested lists */
+    list-style: disc;
+    margin-left: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+/* Footer */
+footer {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+    font-size: 0.9em;
+    box-shadow: 0 -2px 8px var(--shadow-medium);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2em;
+    }
+
+    header p {
+        font-size: 1em;
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+    }
+
+    .main-nav ul li {
+        width: 100%;
+    }
+
+    .main-nav .nav-item {
+        padding: 12px 15px;
+        font-size: 1em;
+    }
+
+    .content-section h2 {
+        font-size: 1.8em;
+    }
+
+    .card {
+        padding: 20px;
+    }
+
+    .card h3 {
+        font-size: 1.4em;
+    }
+
+    .feature-mode {
+        padding: 15px;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
